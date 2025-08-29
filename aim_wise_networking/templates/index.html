@@ -1,0 +1,518 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="{% static 'assets/Band Mark A White.ico' %}" />
+  <title>Aim Wise Networking - Digital Marketing Agency</title>
+  <meta name="description"
+    content="Aim Wise Networking is a digital marketing agency delivering ROI-focused growth via SEO, performance ads, content, and CRO." />
+  <link rel="preload" href="{% static 'assets/Brand Mark Aim Black.svg' %}" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Floating Background Shapes -->
+  <div class="floating-shapes">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Cursor follower -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Floating background shapes -->
+  <div class="bg-shape bg-1"></div>
+  <div class="bg-shape bg-2"></div>
+  <div class="bg-shape bg-3"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand">
+        <img src="{% static 'assets/header-logo-white.png' %}" alt="Aim Wise Logo" class="brand-logo light-only">
+        <img src="{% static 'assets/header-logo-black.png' %}" alt="Aim Wise Logo" class="brand-logo dark-only">
+        <!-- <span class="brand-name">Aim Wise Networking</span> -->
+      </a>
+  
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact" class="btn btn--sm">Let’s talk</a></li>
+          <li>
+            <label class="theme-switch">
+              <input type="checkbox" id="themeToggle">
+              <span class="slider"></span>
+            </label>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero Section -->
+    <section class="hero section">
+      <div class="hero-inner">
+        <h1 class="headline reveal-up">
+          Aim <span class="accent">High</span>.<br>
+          Grow <span class="accent">Wise</span>.
+        </h1>
+        <p class="subhead reveal-up delay-1">
+          We help ambitious brands acquire, retain, and wow customers with performance marketing, content, and conversion design.
+        </p>
+        <div class="cta-group reveal-up delay-2">
+          <a href="#contact" class="btn btn--primary">Book a strategy call</a>
+          <a href="#work" class="btn">See our work</a>
+        </div>
+
+        <div class="metrics reveal-up delay-3">
+          <div class="metric"><span>120+</span><small>&nbsp;projects shipped</small></div>
+          <div class="metric"><span>6.2x</span><small>&nbsp;avg. ROAS</small></div>
+          <div class="metric"><span>35%</span><small>&nbsp;avg. CVR lift</small></div>
+        </div>
+
+        <div class="hero-art reveal-up delay-4" aria-hidden="true">
+          <img src="{% static 'assets/Red PNG.png' %}" alt="" class="hero-blob blob-1">
+          <img src="{% static 'assets/White PNG.png' %}" alt="" class="hero-blob blob-2">
+          <img src="{% static 'assets/Red JPG.png' %}" alt="" class="hero-blob blob-3">
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Here’s what we can do for you</p>
+    
+      <div class="services-flex">
+    
+        <!-- SEO Service -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-search"></i></div>
+          <h3>Search Engine Optimization (SEO)</h3>
+          <p>Boost your organic traffic with proven SEO strategies and optimization techniques.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> On-page and off-page SEO</li>
+            <li><i class="fas fa-check"></i> Keyword analysis & research</li>
+            <li><i class="fas fa-check"></i> Content optimization</li>
+          </ul>
+        </div>
+    
+        <!-- SEO Lottie Animation -->
+        <div class="service-animation animation-seo">
+          <lottie-player src="{% static 'assets/Search-Engine-Optimization.json' %}" background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+    
+        <!-- PPC Lottie Animation -->
+        <div class="service-animation animation-ppc">
+          <lottie-player src="{% static 'assets/Pay-Per-Click.json' %}" background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+        
+        <!-- PPC Service -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-ad"></i></div>
+          <h3>Pay-Per-Click (PPC) Advertising</h3>
+          <p>Drive targeted traffic and maximize your ROI through paid advertising campaigns.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Google Ads & Bing Ads</li>
+            <li><i class="fas fa-check"></i> Retargeting & remarketing</li>
+            <li><i class="fas fa-check"></i> Performance tracking</li>
+          </ul>
+        </div>
+    
+        <!-- SMM Service -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-share-alt"></i></div>
+          <h3>Social Media Marketing (SMM)</h3>
+          <p>Enhance brand visibility and engagement through social media campaigns and strategies.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Social strategy & campaigns</li>
+            <li><i class="fas fa-check"></i> Content creation & scheduling</li>
+            <li><i class="fas fa-check"></i> Analytics & growth tracking</li>
+          </ul>
+        </div>
+    
+        <!-- SMM Lottie Animation -->
+        <div class="service-animation animation-smm">
+          <lottie-player src="{% static 'assets/Social-Media-Marketing.json' %}" background="transparent" speed="1" loop
+            autoplay></lottie-player>
+        </div>
+    
+        <!-- Web Design Lottie Animation -->
+        <!-- <div class="service-animation animation-web">
+          <lottie-player src="{% static 'assets/Web-Design-Development.json' %}" background="transparent" speed="1" loop
+            autoplay></lottie-player>
+        </div> -->
+        
+        <!-- Web Design & Development Service -->
+        <!-- <div class="service-card">
+          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Web Design & Development</h3>
+          <p>Create beautiful, responsive, and high-performance websites that engage users.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Custom website design</li>
+            <li><i class="fas fa-check"></i> CMS & e-commerce solutions</li>
+            <li><i class="fas fa-check"></i> SEO-friendly structure</li>
+          </ul>
+        </div> -->
+    
+        <!-- Digital Marketing Lottie Animation -->
+        <div class="service-animation animation-dm">
+          <lottie-player src="{% static 'assets/Digital-Marketing.json' %}" background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+        
+        <!-- Digital Marketing Service -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+          <h3>Digital Marketing</h3>
+          <p>Comprehensive strategies to build your online presence and connect with your audience.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Brand strategy development</li>
+            <li><i class="fas fa-check"></i> Content marketing & strategy</li>
+            <li><i class="fas fa-check"></i> Conversion optimization</li>
+          </ul>
+        </div>
+    
+      </div>
+    </section>
+
+    <!-- Our Work -->
+    <section id="work" class="work">
+      <div class="container">
+        <h2>Our Work Speaks Growth</h2>
+        <p class="subtext">
+          We don’t just run campaigns — we build success stories. From driving ROI for e-commerce brands
+          to scaling SaaS startups and crafting viral creative campaigns, our portfolio highlights the
+          diverse industries and measurable results we’ve delivered.
+        </p>
+    
+        <!-- Work Gallery -->
+        <div class="gallery">
+          <!-- Social Media Campaign -->
+          <figure class="tile">
+            <img src="{% static 'assets/project1.jpg' %}" alt="Social Media Campaign">
+            <figcaption>
+              <h3>Social Media Campaign</h3>
+              <p>Executed a multi-platform campaign that grew <strong>Instagram followers by 200%</strong>
+                and delivered <strong>1.5M+ engagements</strong> through reels, stories, and interactive polls.</p>
+            </figcaption>
+          </figure>
+        
+          <!-- Content Marketing Strategy -->
+          <figure class="tile">
+            <img src="{% static 'assets/project2.jpg' %}" alt="Content Marketing Strategy">
+            <figcaption>
+              <h3>Content Marketing Strategy</h3>
+              <p>Developed a blog and video content pipeline that boosted <strong>organic leads by 85%</strong>
+                and positioned the brand as an industry thought leader.</p>
+            </figcaption>
+          </figure>
+    
+          <figure class="tile">
+            <img src="{% static 'assets/project3.png' %}" alt="Website Redesign">
+            <figcaption>
+              <h3>B2B SaaS Website</h3>
+              <p>Revamped UI/UX and optimized funnels, achieving a <strong>40% boost in sign-up conversions</strong>
+                for a global SaaS platform.</p>
+            </figcaption>
+          </figure>
+    
+          <figure class="tile">
+            <img src="{% static 'assets/project4.jpg' %}" alt="SEO Growth Case Study">
+            <figcaption>
+              <h3>SEO Strategy</h3>
+              <p>Built a content-driven SEO roadmap leading to a <strong>120% increase</strong> in organic traffic
+                and multiple page-one rankings.</p>
+            </figcaption>
+          </figure>
+    
+          <figure class="tile">
+            <img src="{% static 'assets/project5.jpg' %}" alt="Brand Awareness Campaign">
+            <figcaption>
+              <h3>Startup Growth</h3>
+              <p>Helped an early-stage startup generate <strong>10k+ qualified leads</strong> through
+                multi-channel ad funnels and email automation.</p>
+            </figcaption>
+          </figure>
+    
+          <figure class="tile">
+            <img src="{% static 'assets/project6.jpg' %}" alt="Creative Campaign">
+            <figcaption>
+              <h3>Creative Campaign</h3>
+              <p>Designed a viral social campaign reaching <strong>2M+ impressions</strong> with eye-catching
+                visuals and interactive storytelling.</p>
+            </figcaption>
+          </figure>
+        </div>
+    
+        <div style="margin-top:2rem;">
+          <a href="#contact" class="project-btn">
+            Start a Project With Us 🚀
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+      <div class="section-head">
+        <h2 class="reveal-up">How we work</h2>
+        <p class="reveal-up delay-1">Simple, transparent, and fast.</p>
+      </div>
+    
+      <ol class="steps">
+        <li class="reveal-up">
+          <span class="step-num">01</span>
+          <div class="step-icon"><i class="fas fa-search"></i></div>
+          <h3>Discover & Align</h3>
+          <p>We dive deep into your goals, audience, and challenges to define what success looks like.</p>
+        </li>
+    
+        <li class="reveal-up delay-1">
+          <span class="step-num">02</span>
+          <div class="step-icon"><i class="fas fa-project-diagram"></i></div>
+          <h3>Strategy & Planning</h3>
+          <p>We craft a roadmap with clear milestones, ensuring transparency and alignment at every stage.</p>
+        </li>
+    
+        <li class="reveal-up delay-2">
+          <span class="step-num">03</span>
+          <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
+          <h3>Design & Prototype</h3>
+          <p>Creative concepts, messaging, and landing pages are designed to test and validate quickly.</p>
+        </li>
+    
+        <li class="reveal-up delay-3">
+          <span class="step-num">04</span>
+          <div class="step-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Launch & Optimize</h3>
+          <p>We launch campaigns, monitor results, and iterate fast to maximize ROI.</p>
+        </li>
+    
+        <li class="reveal-up delay-4">
+          <span class="step-num">05</span>
+          <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Scale & Support</h3>
+          <p>With proven results, we help you scale while providing continuous support and innovation.</p>
+        </li>
+
+        <li class="reveal-up delay-5">
+          <span class="step-num">06</span>
+          <div class="step-icon"><i class="fas fa-tachometer-alt"></i></div>
+          <h3>Measure & Improve</h3>
+          <p>We track KPIs, generate actionable insights, and refine strategies to ensure sustained growth.</p>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-container">
+        <!-- Text Side -->
+        <div class="about-content">
+          <h2 class="reveal-up">About <span class="accent">Us</span></h2>
+          <p class="about-subtitle reveal-up delay-1">
+            We’re a team of passionate creators, strategists, and innovators.
+          </p>
+    
+          <p class="about-text reveal-up delay-2">
+            For over <span class="highlight">5 years</span>, we’ve been helping brands
+            connect with their audiences through digital-first solutions.
+            From ideation to execution, we focus on delivering measurable
+            impact with every project.
+          </p>
+    
+          <p class="about-text reveal-up delay-3">
+            Our journey began with a small group of marketers who believed in the power of
+            combining <strong>creativity with data</strong>. Today, Aim Wise Networking has grown
+            into a full-fledged digital marketing agency, working with clients across industries
+            including e-commerce, SaaS, healthcare, education, and lifestyle brands.
+          </p>
+    
+          <p class="about-text reveal-up delay-4">
+            We don’t believe in one-size-fits-all solutions. Every business is unique, and so
+            is our approach. From <strong>SEO strategies</strong> that dominate search rankings
+            to <strong>paid campaigns</strong> that maximize ROI, we tailor everything to your
+            specific goals. Our designers, ad specialists, and content creators collaborate
+            seamlessly to deliver end-to-end solutions that truly move the needle.
+          </p>
+    
+          <p class="about-text reveal-up delay-5">
+            Beyond campaigns, we’re also your <strong>long-term growth partners</strong>.
+            We focus on building relationships, not just delivering projects. That means ongoing
+            optimization, transparent reporting, and strategic guidance that evolves as the
+            digital landscape changes.
+          </p>
+    
+          <ul class="about-list reveal-up delay-6">
+            <li><i class="fas fa-bullseye"></i> Data-driven strategy with clear KPIs</li>
+            <li><i class="fas fa-lightbulb"></i> Creative campaigns that inspire action</li>
+            <li><i class="fas fa-users"></i> Dedicated support from real people</li>
+            <li><i class="fas fa-rocket"></i> Scalable solutions built for growth</li>
+            <li><i class="fas fa-globe"></i> Experience across global markets</li>
+            <li><i class="fas fa-handshake"></i> Trusted by startups & enterprises alike</li>
+          </ul>
+    
+          <div class="cta-group reveal-up delay-7">
+            <a href="#work" class="btn btn--primary">See Our Work</a>
+            <a href="#contact" class="btn">Let’s Talk</a>
+          </div>
+        </div>
+    
+        <!-- Image Side -->
+        <div class="about-image reveal-up">
+          <img src="{% static 'assets/Red JPG.png' %}" alt="Team working together">
+        </div>
+      </div>
+    
+      <!-- Stats Row -->
+      <div class="about-stats reveal-up delay-8">
+        <div class="stat">
+          <span class="stat-num" data-target="120">0</span><small>Projects Completed</small>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="50">0</span><small>Happy Clients</small>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="5">0</span><small>Years of Experience</small>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="12">0</span><small>Industries Served</small>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="8">0</span><small>Countries Reached</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Let’s Build Something Amazing Together</h2>
+        <p class="subtext">
+          Tell us about your project, and we’ll show you how we can help your brand grow.
+        </p>
+        <form class="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="company" placeholder="Company / Brand (optional)">
+          <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+          <button type="submit" class="project-btn">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+  
+  <!-- Scroll To Top Button -->
+  <a href="#content" class="back-to-top">
+    <span>Back to top</span>
+    <svg width="32" height="32" viewbox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5" />
+      <path d="m5 12 7-7 7 7" />
+    </svg>
+  </a>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <!-- LEFT: brand + tagline + contacts -->
+      <div class="footer-left">
+        <div class="footer-brand-block">
+          <div class="footer-brand">
+            <img class="brand-logo light-only" src="{% static 'assets/Band Mark A Black.png' %}" alt="Logo">
+            <img class="brand-logo dark-only" src="{% static 'assets/Band Mark A White.png' %}" alt="Logo">
+
+            <div class="footer-text">
+              <span>Aim Wise Networking</span>
+              <p class="footer-tagline">Digital growth. Creative impact.</p>
+            </div>
+          </div>  
+  
+          <!-- Contact Info -->
+          <div class="footer-contact">
+            <p><i class="fas fa-envelope"></i><br>
+              <a href="mailto:hello@aimwise.com">hello@aimwise.com</a>
+            </p>
+            <p><i class="fas fa-phone"></i><br>
+              <a href="tel:+911234567890">+91-1234567890</a>
+            </p>
+          </div>
+  
+          <!-- Newsletter (optional, commented out by default) -->
+          <!--
+          <div class="footer-newsletter">
+            <form>
+              <input type="email" placeholder="Enter your email" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+          -->
+        </div>
+  
+        <!-- RIGHT of brand block: nav list + socials (with divider) -->
+        <div class="footer-nav-social">
+          <nav class="footer-links">
+            <ul>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#work">Work</a></li>
+              <li><a href="#process">Process</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+  
+          <div class="footer-social">
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i
+                class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i
+                class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- RIGHT COLUMN: animation -->
+      <div class="footer-right">
+        <div class="footer-lottie-wrap">
+          <lottie-player src="{% static 'assets/footer-animation.json' %}" background="transparent" speed="1" class="footer-lottie" loop
+            autoplay></lottie-player>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bottom Strip -->
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Aim Wise Networking | Developed & Managed by
+        <a href="https://www.dynamiclabz.net/" target="_blank">Dynamic Labz</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Custom Scripts -->
+  <script src="{% static 'script.js' %}"></script>
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
+
+</body>
+
+</html>
