@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="{% static 'assets/Band Mark A White.ico' %}" />
+  <link rel="icon" type="image/x-icon" href="{% static 'assets/aim-wise-favicon.ico' %}" />
   <title>Aim Wise Networking - Digital Marketing Agency</title>
   <meta name="description"
     content="Aim Wise Networking is a digital marketing agency delivering ROI-focused growth via SEO, performance ads, content, and CRO." />
@@ -100,93 +100,60 @@
     
       <div class="services-flex">
     
-        <!-- SEO Service -->
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-search"></i></div>
-          <h3>Search Engine Optimization (SEO)</h3>
-          <p>Boost your organic traffic with proven SEO strategies and optimization techniques.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> On-page and off-page SEO</li>
-            <li><i class="fas fa-check"></i> Keyword analysis & research</li>
-            <li><i class="fas fa-check"></i> Content optimization</li>
-          </ul>
+        <!-- Service 1: Content Creation & Production -->
+        <div class="service-card reveal-up">
+          <div class="service-icon"><i class="fas fa-photo-video"></i></div>
+          <h3>Content Creation & Production</h3>
+          <p>High-quality visuals, videos, campaigns, and branded content that bring stories to life. From quick-turnaround reels to large-scale production, we deliver content that resonates and performs.</p>
+        </div>
+        <div class="service-animation animation-seo reveal-up delay-1">
+          <lottie-player src="{% static 'assets/service_content-creation-production.json' %}" background="transparent" speed="1" loop
+            autoplay></lottie-player>
         </div>
     
-        <!-- SEO Lottie Animation -->
-        <div class="service-animation animation-seo">
-          <lottie-player src="{% static 'assets/Search-Engine-Optimization.json' %}" background="transparent" speed="1" loop autoplay></lottie-player>
+        <!-- Service 2: Social Media Marketing -->
+        <div class="service-animation animation-ppc reveal-up">
+          <lottie-player src="{% static 'assets/service_social-media-marketing.json' %}" background="transparent" speed="1" loop
+            autoplay></lottie-player>
         </div>
-    
-        <!-- PPC Lottie Animation -->
-        <div class="service-animation animation-ppc">
-          <lottie-player src="{% static 'assets/Pay-Per-Click.json' %}" background="transparent" speed="1" loop autoplay></lottie-player>
-        </div>
-        
-        <!-- PPC Service -->
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-ad"></i></div>
-          <h3>Pay-Per-Click (PPC) Advertising</h3>
-          <p>Drive targeted traffic and maximize your ROI through paid advertising campaigns.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> Google Ads & Bing Ads</li>
-            <li><i class="fas fa-check"></i> Retargeting & remarketing</li>
-            <li><i class="fas fa-check"></i> Performance tracking</li>
-          </ul>
-        </div>
-    
-        <!-- SMM Service -->
-        <div class="service-card">
+        <div class="service-card reveal-up delay-1">
           <div class="service-icon"><i class="fas fa-share-alt"></i></div>
-          <h3>Social Media Marketing (SMM)</h3>
-          <p>Enhance brand visibility and engagement through social media campaigns and strategies.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> Social strategy & campaigns</li>
-            <li><i class="fas fa-check"></i> Content creation & scheduling</li>
-            <li><i class="fas fa-check"></i> Analytics & growth tracking</li>
-          </ul>
+          <h3>Social Media Marketing</h3>
+          <p>End-to-end social media management — from strategy to design, campaigns to analytics. We don’t just post content; we create engagement, community, and growth.</p>
         </div>
     
-        <!-- SMM Lottie Animation -->
-        <div class="service-animation animation-smm">
-          <lottie-player src="{% static 'assets/Social-Media-Marketing.json' %}" background="transparent" speed="1" loop
+        <!-- Service 3: Branding & Communication -->
+        <div class="service-card reveal-up">
+          <div class="service-icon"><i class="fas fa-comments"></i></div>
+          <h3>Branding & Communication</h3>
+          <p>Developing cohesive brand identities, messaging, and creative campaigns that align with business objectives and connect deeply with audiences.</p>
+        </div>
+        <div class="service-animation animation-smm reveal-up delay-1">
+          <lottie-player src="{% static 'assets/service_branding-communication.json' %}" background="transparent" speed="1" loop
             autoplay></lottie-player>
         </div>
     
-        <!-- Web Design Lottie Animation -->
-        <!-- <div class="service-animation animation-web">
-          <lottie-player src="{% static 'assets/Web-Design-Development.json' %}" background="transparent" speed="1" loop
+        <!-- Service 4: Advertising & Performance Marketing -->
+        <div class="service-animation animation-dm reveal-up">
+          <lottie-player src="{% static 'assets/service_advertising-performance-marketing.json' %}" background="transparent" speed="1" loop
             autoplay></lottie-player>
-        </div> -->
-        
-        <!-- Web Design & Development Service -->
-        <!-- <div class="service-card">
-          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-          <h3>Web Design & Development</h3>
-          <p>Create beautiful, responsive, and high-performance websites that engage users.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> Custom website design</li>
-            <li><i class="fas fa-check"></i> CMS & e-commerce solutions</li>
-            <li><i class="fas fa-check"></i> SEO-friendly structure</li>
-          </ul>
-        </div> -->
-    
-        <!-- Digital Marketing Lottie Animation -->
-        <div class="service-animation animation-dm">
-          <lottie-player src="{% static 'assets/Digital-Marketing.json' %}" background="transparent" speed="1" loop autoplay></lottie-player>
         </div>
-        
-        <!-- Digital Marketing Service -->
-        <div class="service-card">
+        <div class="service-card reveal-up delay-1">
           <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-          <h3>Digital Marketing</h3>
-          <p>Comprehensive strategies to build your online presence and connect with your audience.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> Brand strategy development</li>
-            <li><i class="fas fa-check"></i> Content marketing & strategy</li>
-            <li><i class="fas fa-check"></i> Conversion optimization</li>
-          </ul>
+          <h3>Advertising & Performance Marketing</h3>
+          <p>Data-driven campaigns that turn reach into results. From Google Ads to Meta campaigns, we plan, execute, and track performance to ensure every penny works harder.</p>
         </div>
     
+        <!-- Service 5: Event & On-ground Marketing -->
+        <div class="service-card reveal-up">
+          <div class="service-icon"><i class="fas fa-users"></i></div>
+          <h3>Event & On-ground Marketing</h3>
+          <p>From corporate activity to community events, we bring ideas to life with content, production, and marketing support that builds experiences, not just visibility.</p>
+        </div>
+        <div class="service-animation animation-dm reveal-up delay-1">
+          <lottie-player src="{% static 'assets/service_event-marketing.json' %}" background="transparent" speed="1" loop
+            autoplay></lottie-player>
+        </div>
       </div>
     </section>
 
@@ -326,47 +293,34 @@
         <!-- Text Side -->
         <div class="about-content">
           <h2 class="reveal-up">About <span class="accent">Us</span></h2>
-          <p class="about-subtitle reveal-up delay-1">
+          <!-- <p class="about-subtitle reveal-up delay-1">
             We’re a team of passionate creators, strategists, and innovators.
+          </p> -->
+    
+          <p class="about-text reveal-up delay-1">
+            <span class="highlight">Aimwise Networking</span> is a full-service creative and marketing agency that partners with modern brands to craft <strong>meaningful narratives</strong>, deliver <strong>high-performance strategies</strong>, and build <strong>distinct identities</strong> across platforms.
           </p>
     
           <p class="about-text reveal-up delay-2">
-            For over <span class="highlight">5 years</span>, we’ve been helping brands
-            connect with their audiences through digital-first solutions.
-            From ideation to execution, we focus on delivering measurable
-            impact with every project.
+            Rooted in Gandhinagar and scaling across Gujarat, Aimwise is committed to building <strong>holistic brand journeys</strong> from <strong>identity design and content creation</strong> to <strong>campaign strategy and communication management</strong>. Every touchpoint is seen as an opportunity to <strong>influence, inspire, and impact</strong>.
           </p>
     
           <p class="about-text reveal-up delay-3">
-            Our journey began with a small group of marketers who believed in the power of
-            combining <strong>creativity with data</strong>. Today, Aim Wise Networking has grown
-            into a full-fledged digital marketing agency, working with clients across industries
-            including e-commerce, SaaS, healthcare, education, and lifestyle brands.
+            Whether it's launching a product, redefining a brand, or generating leads, Aimwise thrives on bringing <strong>clarity to chaos</strong> and <strong>creativity to communication</strong>.
           </p>
     
           <p class="about-text reveal-up delay-4">
-            We don’t believe in one-size-fits-all solutions. Every business is unique, and so
-            is our approach. From <strong>SEO strategies</strong> that dominate search rankings
-            to <strong>paid campaigns</strong> that maximize ROI, we tailor everything to your
-            specific goals. Our designers, ad specialists, and content creators collaborate
-            seamlessly to deliver end-to-end solutions that truly move the needle.
+            With a full in-house production team and a dedicated studio for product and concept shoots, we deliver tailored marketing solutions that stand out. Our edge lies in our commitment to <strong>clear communication</strong>, <strong>fast delivery</strong>, and a <strong>diverse portfolio</strong>. We don't believe in limits, only in results.
           </p>
     
-          <p class="about-text reveal-up delay-5">
-            Beyond campaigns, we’re also your <strong>long-term growth partners</strong>.
-            We focus on building relationships, not just delivering projects. That means ongoing
-            optimization, transparent reporting, and strategic guidance that evolves as the
-            digital landscape changes.
-          </p>
-    
-          <ul class="about-list reveal-up delay-6">
+          <!-- <ul class="about-list reveal-up delay-6">
             <li><i class="fas fa-bullseye"></i> Data-driven strategy with clear KPIs</li>
             <li><i class="fas fa-lightbulb"></i> Creative campaigns that inspire action</li>
             <li><i class="fas fa-users"></i> Dedicated support from real people</li>
             <li><i class="fas fa-rocket"></i> Scalable solutions built for growth</li>
             <li><i class="fas fa-globe"></i> Experience across global markets</li>
             <li><i class="fas fa-handshake"></i> Trusted by startups & enterprises alike</li>
-          </ul>
+          </ul> -->
     
           <div class="cta-group reveal-up delay-7">
             <a href="#work" class="btn btn--primary">See Our Work</a>
@@ -399,6 +353,40 @@
         </div>
       </div>
     </section>
+
+    
+    <!-- Vision & Mission Section -->
+    <section id="vision-mission" class="vision-mission-section">
+      <div class="section-head reveal-up">
+        <h2>Our <span class="accent">Core Beliefs</span></h2>
+        <p class="subhead">The vision that inspires us and the mission that drives us</p>
+      </div>
+    
+      <div class="vm-container">
+        <!-- Vision -->
+        <div class="vm-content reveal-up">
+          <h3><i class="fas fa-eye vm-icon"></i> <span>Vision</span></h3>
+          <p>
+            To become Gujarat’s most trusted and dynamic creative agency — one that emerging and evolving brands
+            instinctively turn to for strategy, storytelling, and standout design.
+            We envision a future where Aimwise is not just a service provider, but a creative ally in every brand’s journey
+            — from idea to influence.
+          </p>
+        </div>
+    
+        <!-- Mission -->
+        <div class="vm-content reveal-up delay-1">
+          <h3><i class="fas fa-bullseye vm-icon"></i> <span>Mission</span></h3>
+          <p>
+            Our mission is to build meaningful, measurable, and memorable brand experiences by combining design-driven
+            thinking, culture-first content, and results-oriented strategy.
+            Through a tightly-knit in-house team, we aim to deliver work that is not only on time but on point, helping
+            brands of all kinds — from local disruptors to digital-native ventures — grow with clarity and confidence.
+          </p>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">

@@ -147,9 +147,36 @@ body {
   color: var(--text);
 }
 
+/* Brand Logo Gradient Background */
+.brand::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;   /* adjust size as needed */
+  height: 180px;  /* adjust size as needed */
+  background: radial-gradient(
+    circle,
+    rgba(253, 44, 21, 0.8) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(40px); /* creates the soft blurry glow */
+  z-index: -1;        /* sits behind the logo */
+  border-radius: 50%;
+}
+
+/* Ensure the parent has position relative */
+.brand {
+  position: relative;
+  display: inline-block;
+}
+
+
 /* Default navbar look */
 .site-header {
   transition: all 0.35s ease;
+  overflow: hidden;
 }
 
 /* Brand and nav transition */
@@ -159,8 +186,19 @@ body {
 }
 
 /* Shrunk state */
+/* Shrunk Navbar State */
 .site-header.shrink {
   padding: 0.3rem 0; /* less vertical space */
+  background: rgba(255, 255, 255, 0.92); /* subtle background */
+  backdrop-filter: blur(8px); /* modern glassy effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
+  transition: all 0.35s ease;
+}
+
+/* Dark Theme */
+html.dark .site-header.shrink {
+  background: rgba(0, 0, 0, 0.75); /* subtle dark */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
 .site-header.shrink .brand-logo {
@@ -169,13 +207,16 @@ body {
 }
 
 .site-header.shrink .brand-name {
-  font-size: 1.5rem; /* smaller text */
+  font-size: 1.5rem; /* slightly smaller text */
+  transition: font-size 0.3s ease;
 }
 
 .site-header.shrink .nav-list a {
   font-size: 0.95rem;
   padding: 0.3rem 0.5rem;
+  transition: font-size 0.3s ease, padding 0.3s ease;
 }
+
 
 .brand-logo {
   height: 80px;
@@ -739,6 +780,18 @@ h3 {
 /* =======================
    Section Containers
    ======================= */
+.services-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  filter: blur(100px);
+  z-index: -1;
+}
+
 .services-section {
   padding: clamp(3rem, 7vw, 5rem) 6rem;
   color: var(--text);
@@ -804,7 +857,7 @@ h3 {
 
 /* Base style for all animations */
 .service-animation lottie-player {
-  width: 80%;
+  width: 60%;
   height: auto;
   max-height: 300px;
 }
@@ -835,7 +888,7 @@ h3 {
 
 /* Digital Marketing Animation */
 .animation-dm lottie-player {
-  width: auto;
+  width: 70%;
   animation: float 3s ease-in-out infinite; /* Floating effect */
 }
 
@@ -944,11 +997,11 @@ h3 {
   color: var(--text);
 }
 
-.about-subtitle {
+/* .about-subtitle {
   font-size: 1.3rem;
   margin-bottom: 1rem;
   color: var(--text-light);
-}
+} */
 
 .about-list {
   list-style: none;
@@ -1037,6 +1090,117 @@ h3 {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 10px 25px rgba(0,0,0,0.18);
 }
+
+
+/* ===== Vision & Mission Section ===== */
+.vision-mission-section {
+  padding: clamp(3rem, 7vw, 5rem) 9rem;
+  color: var(--text);
+  text-align: center;
+  background: transparent;   /* ✅ no extra background */
+  margin-top: -2rem;         /* ✅ pulls it closer to About section */
+}
+
+/* subtle background glow */
+.vision-mission-section::before {
+  display: none;             /* ✅ remove background glow that caused separation */
+}
+
+.vm-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+/* ===== Vision & Mission Interactions ===== */
+.vm-content {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.vm-content:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25),
+              0 0 20px color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+/* Glow background effect */
+.vm-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: radial-gradient(circle at center,
+              color-mix(in oklab, var(--accent) 20%, transparent),
+              transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.vm-content:hover::before {
+  opacity: 1;
+}
+
+/* Heading underline animation */
+.vm-content h3 span {
+  position: relative;
+  display: inline-block;
+}
+
+.vm-content h3 span::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.4s ease;
+}
+
+.vm-content:hover h3 span::after {
+  width: 100%;
+}
+
+.vm-icon {
+  font-size: 1.4rem;
+}
+
+.vm-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Gradient underline animation for section title */
+.vision-mission-section .section-head h2 {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.vision-mission-section .section-head h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.vision-mission-section .section-head h2:hover::after {
+  transform: scaleX(1);
+}
+
 
 @media(prefers-reduced-motion: no-preference) {
   html {
@@ -1460,4 +1624,187 @@ select:focus {
 
 .footer-bottom a:hover {
   text-decoration: underline;
+}
+
+
+/* =======================
+   Responsive Design
+   ======================= */
+
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 10rem 2rem;
+  }
+
+  .services-flex {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+
+  .project-btn{
+    width: 30%;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 50%;
+  }
+
+  .about-stats{
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  }
+
+  .process .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bottom {
+  margin-top: 4rem;
+}
+}
+
+/* Mobile Landscape & Small Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 0 1rem;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 80%;
+    max-width: 280px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-list.show {
+    transform: translateX(0);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero {
+    padding: 10rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .metrics {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  .process .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .services-flex {
+    gap: 2rem;
+  }
+
+  .service-card,
+  .service-animation {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .work{
+    padding: clamp(3rem, 7vw, 5rem) 7.5rem;
+  }
+
+  .project-btn{
+    width: 50%;
+  }
+
+  .about-content .cta-group {
+    justify-content: center;
+  }
+
+  .about-stats{
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  }
+
+  .contact .container {
+    padding: 2rem 5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-main {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-left {
+    flex-direction: column;
+  }
+
+  .footer-nav-social {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+}
+
+/* Small Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  /* .hero{
+    
+  } */
+
+  .btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .project-btn {
+    width: 100%;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .footer-text span {
+    font-size: 1.5rem;
+  }
+
+  .footer-text .footer-tagline {
+    font-size: 1rem;
+  }
 }
