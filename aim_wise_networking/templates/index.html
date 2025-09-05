@@ -6,11 +6,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Updated favicon to use Django static template tag -->
   <link rel="icon" type="image/x-icon" href="{% static 'assets/aim-wise-favicon.ico' %}" />
   <title>Aim Wise Networking - Digital Marketing Agency</title>
   <meta name="description"
     content="Aim Wise Networking is a digital marketing agency delivering ROI-focused growth via SEO, performance ads, content, and CRO." />
+  <!-- Updated preload link to use Django static template tag -->
   <link rel="preload" href="{% static 'assets/Brand Mark Aim Black.svg' %}" as="image" type="image/svg+xml">
+  <!-- Updated CSS file reference to use Django static template tag -->
   <link rel="stylesheet" href="{% static 'style.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -30,34 +33,33 @@
   <div class="bg-shape bg-1"></div>
   <div class="bg-shape bg-2"></div>
   <div class="bg-shape bg-3"></div>
+  <!-- Added new circular target background shape -->
+  <div class="bg-shape bg-4"></div>
+  <div class="bg-shape bg-5"></div>
+  <div class="bg-shape bg-6"></div>
 
   <header class="site-header">
     <div class="header-inner">
       <a href="#" class="brand">
-        <img src="{% static 'assets/header-logo-white.png' %}" alt="Aim Wise Logo" class="brand-logo light-only">
-        <img src="{% static 'assets/header-logo-black.png' %}" alt="Aim Wise Logo" class="brand-logo dark-only">
-        <!-- <span class="brand-name">Aim Wise Networking</span> -->
+        <!-- Updated logo image to use Django static template tag -->
+        <img src="{% static 'assets/header.png' %}" alt="Aim Wise Logo" class="brand-logo">
       </a>
   
       <nav class="nav">
-        <button class="nav-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
         <ul class="nav-list">
           <li><a href="#services">Services</a></li>
           <li><a href="#work">Work</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#contact" class="btn btn--sm">Let’s talk</a></li>
-          <li>
-            <label class="theme-switch">
-              <input type="checkbox" id="themeToggle">
-              <span class="slider"></span>
-            </label>
-          </li>
+          <li><a href="#contact" class="btn btn--sm">Let's talk</a></li>
         </ul>
+
+        <!-- Removed theme toggle completely -->
+  
+        <!-- ✅ Hamburger -->
+        <button class="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
       </nav>
     </div>
   </header>
@@ -68,7 +70,7 @@
     <section class="hero section">
       <div class="hero-inner">
         <h1 class="headline reveal-up">
-          Aim <span class="accent">High</span>.<br>
+          <span class="accent">Aim</span> High.<br>
           Grow <span class="accent">Wise</span>.
         </h1>
         <p class="subhead reveal-up delay-1">
@@ -86,6 +88,7 @@
         </div>
 
         <div class="hero-art reveal-up delay-4" aria-hidden="true">
+          <!-- Updated hero images to use Django static template tag -->
           <img src="{% static 'assets/Red PNG.png' %}" alt="" class="hero-blob blob-1">
           <img src="{% static 'assets/White PNG.png' %}" alt="" class="hero-blob blob-2">
           <img src="{% static 'assets/Red JPG.png' %}" alt="" class="hero-blob blob-3">
@@ -96,7 +99,7 @@
     <!-- Services Section -->
     <section id="services" class="services-section">
       <h2 class="section-title">Our Services</h2>
-      <p class="section-subtitle">Here’s what we can do for you</p>
+      <p class="section-subtitle">Here's what we can do for you</p>
     
       <div class="services-flex">
     
@@ -107,19 +110,21 @@
           <p>High-quality visuals, videos, campaigns, and branded content that bring stories to life. From quick-turnaround reels to large-scale production, we deliver content that resonates and performs.</p>
         </div>
         <div class="service-animation animation-seo reveal-up delay-1">
+          <!-- Updated Lottie animation to use Django static template tag -->
           <lottie-player src="{% static 'assets/service_content-creation-production.json' %}" background="transparent" speed="1" loop
             autoplay></lottie-player>
         </div>
     
         <!-- Service 2: Social Media Marketing -->
         <div class="service-animation animation-ppc reveal-up">
+          <!-- Updated Lottie animation to use Django static template tag -->
           <lottie-player src="{% static 'assets/service_social-media-marketing.json' %}" background="transparent" speed="1" loop
             autoplay></lottie-player>
         </div>
         <div class="service-card reveal-up delay-1">
           <div class="service-icon"><i class="fas fa-share-alt"></i></div>
           <h3>Social Media Marketing</h3>
-          <p>End-to-end social media management — from strategy to design, campaigns to analytics. We don’t just post content; we create engagement, community, and growth.</p>
+          <p>End-to-end social media management — from strategy to design, campaigns to analytics. We don't just post content; we create engagement, community, and growth.</p>
         </div>
     
         <!-- Service 3: Branding & Communication -->
@@ -129,12 +134,14 @@
           <p>Developing cohesive brand identities, messaging, and creative campaigns that align with business objectives and connect deeply with audiences.</p>
         </div>
         <div class="service-animation animation-smm reveal-up delay-1">
+          <!-- Updated Lottie animation to use Django static template tag -->
           <lottie-player src="{% static 'assets/service_branding-communication.json' %}" background="transparent" speed="1" loop
             autoplay></lottie-player>
         </div>
     
         <!-- Service 4: Advertising & Performance Marketing -->
         <div class="service-animation animation-dm reveal-up">
+          <!-- Updated Lottie animation to use Django static template tag -->
           <lottie-player src="{% static 'assets/service_advertising-performance-marketing.json' %}" background="transparent" speed="1" loop
             autoplay></lottie-player>
         </div>
@@ -151,6 +158,7 @@
           <p>From corporate activity to community events, we bring ideas to life with content, production, and marketing support that builds experiences, not just visibility.</p>
         </div>
         <div class="service-animation animation-dm reveal-up delay-1">
+          <!-- Updated Lottie animation to use Django static template tag -->
           <lottie-player src="{% static 'assets/service_event-marketing.json' %}" background="transparent" speed="1" loop
             autoplay></lottie-player>
         </div>
@@ -162,15 +170,16 @@
       <div class="container">
         <h2>Our Work Speaks Growth</h2>
         <p class="subtext">
-          We don’t just run campaigns — we build success stories. From driving ROI for e-commerce brands
+          We don't just run campaigns — we build success stories. From driving ROI for e-commerce brands
           to scaling SaaS startups and crafting viral creative campaigns, our portfolio highlights the
-          diverse industries and measurable results we’ve delivered.
+          diverse industries and measurable results we've delivered.
         </p>
     
         <!-- Work Gallery -->
         <div class="gallery">
           <!-- Social Media Campaign -->
           <figure class="tile">
+            <!-- Updated project images to use Django static template tag -->
             <img src="{% static 'assets/project1.jpg' %}" alt="Social Media Campaign">
             <figcaption>
               <h3>Social Media Campaign</h3>
@@ -293,9 +302,6 @@
         <!-- Text Side -->
         <div class="about-content">
           <h2 class="reveal-up">About <span class="accent">Us</span></h2>
-          <!-- <p class="about-subtitle reveal-up delay-1">
-            We’re a team of passionate creators, strategists, and innovators.
-          </p> -->
     
           <p class="about-text reveal-up delay-1">
             <span class="highlight">Aimwise Networking</span> is a full-service creative and marketing agency that partners with modern brands to craft <strong>meaningful narratives</strong>, deliver <strong>high-performance strategies</strong>, and build <strong>distinct identities</strong> across platforms.
@@ -313,15 +319,6 @@
             With a full in-house production team and a dedicated studio for product and concept shoots, we deliver tailored marketing solutions that stand out. Our edge lies in our commitment to <strong>clear communication</strong>, <strong>fast delivery</strong>, and a <strong>diverse portfolio</strong>. We don't believe in limits, only in results.
           </p>
     
-          <!-- <ul class="about-list reveal-up delay-6">
-            <li><i class="fas fa-bullseye"></i> Data-driven strategy with clear KPIs</li>
-            <li><i class="fas fa-lightbulb"></i> Creative campaigns that inspire action</li>
-            <li><i class="fas fa-users"></i> Dedicated support from real people</li>
-            <li><i class="fas fa-rocket"></i> Scalable solutions built for growth</li>
-            <li><i class="fas fa-globe"></i> Experience across global markets</li>
-            <li><i class="fas fa-handshake"></i> Trusted by startups & enterprises alike</li>
-          </ul> -->
-    
           <div class="cta-group reveal-up delay-7">
             <a href="#work" class="btn btn--primary">See Our Work</a>
             <a href="#contact" class="btn">Let’s Talk</a>
@@ -330,6 +327,7 @@
     
         <!-- Image Side -->
         <div class="about-image reveal-up">
+          <!-- Updated about image to use Django static template tag -->
           <img src="{% static 'assets/Red JPG.png' %}" alt="Team working together">
         </div>
       </div>
@@ -365,18 +363,23 @@
       <div class="vm-container">
         <!-- Vision -->
         <div class="vm-content reveal-up">
-          <h3><i class="fas fa-eye vm-icon"></i> <span>Vision</span></h3>
+          <h3>
+            <!-- Updated vision icon to use Django static template tag -->
+            <img src="{% static 'assets/vision-icon-dark.png' %}" alt="Vision Icon" class="vm-icon-vision">
+            <span>Vision</span>
+          </h3>
           <p>
-            To become Gujarat’s most trusted and dynamic creative agency — one that emerging and evolving brands
-            instinctively turn to for strategy, storytelling, and standout design.
-            We envision a future where Aimwise is not just a service provider, but a creative ally in every brand’s journey
-            — from idea to influence.
+            To become Gujarat's most trusted and dynamic creative agency — one that emerging and evolving brands instinctively turn to for strategy, storytelling, and standout design. We envision a future where Aimwise is not just a service provider, but a creative ally in every brand's journey — from idea to influence.
           </p>
         </div>
     
         <!-- Mission -->
         <div class="vm-content reveal-up delay-1">
-          <h3><i class="fas fa-bullseye vm-icon"></i> <span>Mission</span></h3>
+          <h3>
+            <!-- Updated mission icon to use Django static template tag -->
+            <img src="{% static 'assets/mission-icon-dark.ico' %}" alt="Mission Icon" class="vm-icon">
+            <span>Mission</span>
+          </h3>
           <p>
             Our mission is to build meaningful, measurable, and memorable brand experiences by combining design-driven
             thinking, culture-first content, and results-oriented strategy.
@@ -410,10 +413,8 @@
   <!-- Scroll To Top Button -->
   <a href="#content" class="back-to-top">
     <span>Back to top</span>
-    <svg width="32" height="32" viewbox="0 0 24 24" aria-hidden="true">
-      <path d="M12 19V5" />
-      <path d="m5 12 7-7 7 7" />
-    </svg>
+    <!-- Updated back-to-top icon to use Django static template tag -->
+    <img src="{% static 'assets/back-to-top.png' %}" alt="Go to top" class="back-to-top-icon">
   </a>
 
 
@@ -424,8 +425,8 @@
       <div class="footer-left">
         <div class="footer-brand-block">
           <div class="footer-brand">
-            <img class="brand-logo light-only" src="{% static 'assets/Band Mark A Black.png' %}" alt="Logo">
-            <img class="brand-logo dark-only" src="{% static 'assets/Band Mark A White.png' %}" alt="Logo">
+            <!-- Updated footer logo to use Django static template tag -->
+            <img class="brand-logo" src="{% static 'assets/Band Mark A White.png' %}" alt="Logo">
 
             <div class="footer-text">
               <span>Aim Wise Networking</span>
@@ -442,16 +443,6 @@
               <a href="tel:+911234567890">+91-1234567890</a>
             </p>
           </div>
-  
-          <!-- Newsletter (optional, commented out by default) -->
-          <!--
-          <div class="footer-newsletter">
-            <form>
-              <input type="email" placeholder="Enter your email" required>
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
-          -->
         </div>
   
         <!-- RIGHT of brand block: nav list + socials (with divider) -->
@@ -481,6 +472,7 @@
       <!-- RIGHT COLUMN: animation -->
       <div class="footer-right">
         <div class="footer-lottie-wrap">
+          <!-- Updated footer animation to use Django static template tag -->
           <lottie-player src="{% static 'assets/footer-animation.json' %}" background="transparent" speed="1" class="footer-lottie" loop
             autoplay></lottie-player>
         </div>
@@ -496,10 +488,10 @@
   </footer>
 
   <!-- Custom Scripts -->
+  <!-- Updated script file reference to use Django static template tag -->
   <script src="{% static 'script.js' %}"></script>
   <!-- Lottie Player -->
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  
 
 </body>
 
