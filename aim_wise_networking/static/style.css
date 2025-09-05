@@ -964,6 +964,7 @@ h3 {
   max-width: 1000px;
   margin: 0 auto 2rem;
   color: var(--muted);
+  font-size: 1.2rem;
 }
 
 /* .project-btn-wrapper {
@@ -1636,6 +1637,8 @@ select:focus {
   width: 400px;
   height: auto;
   max-height: 180px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Bottom strip */
@@ -1830,7 +1833,7 @@ select:focus {
     border-top: 1px solid var(--border);
     padding-top: 1rem;
   }
-
+  
   .footer-lottie {
     width: 300px;
     max-height: 150px;
@@ -1879,69 +1882,80 @@ select:focus {
   }
 }
 
-/* Tablets (651px-768px) */
-@media (min-width: 651px) and (max-width: 768px) {
-  .footer-main {
+/* Tablet & below: show animation → card for each service */
+@media (max-width: 768px) {
+  .services-flex {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
-  .footer-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  /* 1) Flatten any column wrappers so their children act as direct flex items */
+  .services-flex > :has(> .service-animation),
+  .services-flex > :has(> .service-card) {
+    display: contents;
   }
 
-  .footer-brand-block {
+  /* 2) Force the exact sequence you want using :nth-child(… of <selector>) */
+  .services-flex > :nth-child(1 of .service-animation) {
+    order: 1;
+  }
+  .services-flex > :nth-child(1 of .service-card) {
+    order: 2;
+  }
+
+  .services-flex > :nth-child(2 of .service-animation) {
+    order: 3;
+  }
+  .services-flex > :nth-child(2 of .service-card) {
+    order: 4;
+  }
+
+  .services-flex > :nth-child(3 of .service-animation) {
+    order: 5;
+  }
+  .services-flex > :nth-child(3 of .service-card) {
+    order: 6;
+  }
+
+  .services-flex > :nth-child(4 of .service-animation) {
+    order: 7;
+  }
+  .services-flex > :nth-child(4 of .service-card) {
+    order: 8;
+  }
+
+  .services-flex > :nth-child(5 of .service-animation) {
+    order: 9;
+  }
+  .services-flex > :nth-child(5 of .service-card) {
+    order: 10;
+  }
+
+  /* Optional: keep the visuals compact so cards are visible quickly */
+  .services-flex .service-animation {
+    display: grid;
+    place-items: center;
+  }
+  .services-flex .service-animation lottie-player,
+  .services-flex .service-animation img,
+  .services-flex .service-animation svg,
+  .services-flex .service-animation video {
+    max-width: 320px;
+    max-height: 300px;
     width: 100%;
-  }
-
-  /* Position nav-social and animation side by side */
-  .footer-nav-social-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-  }
-
-  .footer-nav-social {
-    border-left: none;
-    padding-left: 0;
-    border-top: none;
-    padding-top: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    flex: 1;
-  }
-
-  .footer-links {
-    flex: 1;
-  }
-
-  .footer-social {
-    flex-shrink: 0;
-  }
-
-  .footer-right {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .footer-lottie {
-    width: 200px;
-    max-height: 120px;
+    height: auto;
+    margin: 0 auto;
   }
 }
 
-/* =======================
-   Footer End
-   ======================= */
+/* Small phones: make animations a bit smaller */
+@media (max-width: 480px) {
+  .services-flex .service-animation lottie-player,
+  .services-flex .service-animation img,
+  .services-flex .service-animation svg,
+  .services-flex .service-animation video {
+    max-width: 240px;
+    max-height: 220px;
+  }
+}
