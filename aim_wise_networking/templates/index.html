@@ -445,39 +445,36 @@
           </div>
         </div>
   
-        <!-- Wrapped nav-social and animation in a container for 650px-768px layout -->
-        <div class="footer-nav-social-wrapper">
-          <!-- RIGHT of brand block: nav list + socials (with divider) -->
-          <div class="footer-nav-social">
-            <nav class="footer-links">
-              <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </nav>
-    
-            <div class="footer-social">
-              <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i
-                  class="fab fa-linkedin-in"></i></a>
-              <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i
-                  class="fab fa-instagram"></i></a>
-              <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            </div>
-          </div>
+        <!-- RIGHT of brand block: nav list + socials (with divider) -->
+        <div class="footer-nav-social">
+          <nav class="footer-links">
+            <ul>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#work">Work</a></li>
+              <li><a href="#process">Process</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
   
-          <!-- RIGHT COLUMN: animation -->
-          <div class="footer-right">
-            <div class="footer-lottie-wrap">
-              <!-- Updated footer animation to use Django static template tag -->
-              <lottie-player src="{% static 'assets/footer-animation.json' %}" background="transparent" speed="1" class="footer-lottie" loop
-                autoplay></lottie-player>
-            </div>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i
+                class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i
+                class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
+        </div>
+      </div>
+  
+      <!-- RIGHT COLUMN: animation -->
+      <div class="footer-right">
+        <div class="footer-lottie-wrap">
+          <!-- Updated footer animation to use Django static template tag -->
+          <lottie-player src="{% static 'assets/footer-animation.json' %}" background="transparent" speed="1" class="footer-lottie" loop
+            autoplay></lottie-player>
         </div>
       </div>
     </div>
