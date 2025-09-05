@@ -782,42 +782,51 @@ h3 {
    Service Animations
    ======================= */
 
-/* Base style for all animations */
-.service-animation lottie-player {
+/* Service 1: Content Creation & Production - Animation */
+.animation1 lottie-player {
+  width: 350px;
+  height: auto;
+  max-height: 300px;
+  filter: drop-shadow(0 6px 12px rgba(91, 124, 255, 0.4));
+  animation: float 3s ease-in-out infinite; /* Floating effect */
+}
+
+/* Service 2: Social Media Marketing - Animation */
+.animation2 lottie-player {
+  width: 350px;
+  height: 300px;
+  /* max-height: 300px; */
+  transform: scale(1.1); /* Slight zoom-in effect */
+  animation: float 3s ease-in-out infinite; /* Floating effect */
+}
+
+/* Service 3: Branding & Communication - Animation */
+.animation3 lottie-player {
   width: 60%;
   height: auto;
   max-height: 300px;
-}
-
-/* SEO Animation */
-.animation-seo lottie-player {
-  /* width: 55%; */
-  filter: drop-shadow(0 6px 12px rgba(91, 124, 255, 0.4));
-}
-
-/* PPC Animation */
-.animation-ppc lottie-player {
-  transform: scale(1.1); /* Slight zoom-in effect */
-}
-
-/* Social Media Marketing Animation */
-.animation-smm lottie-player {
-  width: 60%;
   filter: brightness(1.1) saturate(1.2); /* Pop of color */
-}
-
-/* Web Design Animation */
-.animation-web lottie-player {
-  border-radius: 12px;
-  padding: 0.5rem;
-  width: 92%;
-}
-
-/* Digital Marketing Animation */
-.animation-dm lottie-player {
-  width: 70%;
   animation: float 3s ease-in-out infinite; /* Floating effect */
 }
+
+/* Service 4: Advertising & Performance Marketing - Animation */
+.animation4 lottie-player {
+  width: 420px;
+  height: 280px;
+  /* max-height: 300px;
+  border-radius: 12px;
+  padding: 0.5rem; */
+  animation: float 3s ease-in-out infinite; /* Floating effect */
+}
+
+/* Service 5: Event & On-ground Marketing - Animation */
+.animation5 lottie-player {
+  width: 300px;
+  height: 300px;
+  /* max-height: 300px; */
+  animation: float 3s ease-in-out infinite; /* Floating effect */
+}
+
 
 /* Floating animation keyframes */
 @keyframes float {
@@ -1409,6 +1418,23 @@ select:focus {
   color: var(--muted);
 }
 
+@media (max-width: 500px) {
+  main{
+    width: 600px;
+  }
+
+  .blob-1{
+    left: 25%;
+    top: 30%;
+  }
+
+  .site-footer {
+    width: max-content;
+    padding: 2rem 2rem 1rem;
+  }
+}
+
+
 /* Main wrapper */
 .footer-main {
   display: flex;
@@ -1420,7 +1446,7 @@ select:focus {
 
 /* Left area split into 2 columns: brand-block | nav-social */
 .footer-left {
-  flex: 1;
+  flex: 1 800px; /* grows, but not smaller than 800px */
   display: flex;
   gap: 2rem;
   align-items: flex-start;
@@ -1835,6 +1861,10 @@ select:focus {
     width: 300px;
     max-height: 150px;
   }
+
+  .footer-bottom {
+    margin-top: 1rem;
+  }
 }
 
 /* Small Mobile (≤ 480px) */
@@ -1879,8 +1909,20 @@ select:focus {
   }
 }
 
+@media (min-width: 1200px) and (max-width: 1460px) {
+  .footer-left {
+    flex: 1 643px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .footer-bottom {
+    margin-top: 4rem;
+  }
+}
+
 /* Tablets (689px-768px) */
-@media (min-width: 689px) and (max-width: 768px) {
+@media (min-width: 765px) and (max-width: 768px) {
   .footer-main {
     display: flex;
     flex-direction: row;
@@ -1920,15 +1962,17 @@ select:focus {
 
 
 /* Screens below 688px */
-@media (max-width: 688px) {
+@media (max-width: 764px) {
   .footer-main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     text-align: center;
+    align-items: center;
   }
 
   .footer-left {
+    flex: auto;
     flex-direction: column;
     align-items: center;
   }
@@ -1978,7 +2022,40 @@ select:focus {
     width: 250px;
     max-height: 130px;
   }
+
+  .footer-bottom {
+    margin-top: 2rem;
+  }
 }
+
+@media (max-width: 768px) {
+  /* Services: mobile order = Animation → Card for each service */
+  #services .services-flex {
+    flex-direction: column;   /* stack vertically */
+    flex-wrap: nowrap;        /* single column */
+  }
+
+  /* S1 swap */
+  #services .services-flex > :nth-child(1) { order: 2; }  /* S1 card */
+  #services .services-flex > :nth-child(2) { order: 1; }  /* S1 animation */
+
+  /* S2 is already correct (Animation → Card) */
+  #services .services-flex > :nth-child(3) { order: 3; }  /* S2 animation */
+  #services .services-flex > :nth-child(4) { order: 4; }  /* S2 card */
+
+  /* S3 swap */
+  #services .services-flex > :nth-child(5) { order: 6; }  /* S3 card */
+  #services .services-flex > :nth-child(6) { order: 5; }  /* S3 animation */
+
+  /* S4 is already correct */
+  #services .services-flex > :nth-child(7) { order: 7; }  /* S4 animation */
+  #services .services-flex > :nth-child(8) { order: 8; }  /* S4 card */
+
+  /* S5 swap */
+  #services .services-flex > :nth-child(9)  { order: 10; } /* S5 card */
+  #services .services-flex > :nth-child(10) { order: 9; }  /* S5 animation */
+}
+
 
 /* =======================
    Footer End
