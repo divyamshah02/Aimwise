@@ -116,40 +116,31 @@ body {
   animation: rotateSubtle 40s linear infinite, pulse 6s ease-in-out infinite;
 }
 
-/* Alternate background */
-
-/* @keyframes glowPulse {
-  0%, 100% {
-    filter:
-      drop-shadow(0 0 8px rgba(253, 44, 21, 1))
-      drop-shadow(0 0 20px rgba(253, 44, 21, 0.8))
-      drop-shadow(0 0 40px rgba(253, 44, 21, 0.6));
-  }
-  50% {
-    filter:
-      drop-shadow(0 0 15px rgba(253, 44, 21, 1))
-      drop-shadow(0 0 35px rgba(253, 44, 21, 0.9))
-      drop-shadow(0 0 70px rgba(253, 44, 21, 0.7));
-  }
-}
-
-.target {
-  background-image: url('assets/background-aim.svg');
+.target-arrow {
+  background-image: url('assets/background-arrow.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: fixed;
   z-index: -2;
+
+  /* Show the rings */
   opacity: 0.35;
-  animation: rotateSubtle 40s linear infinite, glowPulse 5s ease-in-out infinite;
-} */
+
+  /* Add layered glow */
+  filter:
+    drop-shadow(0 0 10px rgba(253, 44, 21, 0.9))   /* sharp glow close to stroke */
+    drop-shadow(0 0 25px rgba(253, 44, 21, 0.7))   /* medium glow */
+    drop-shadow(0 0 50px rgba(253, 44, 21, 0.5));  /* far aura */
+  animation: rotateSubtle 40s linear infinite, pulse 6s ease-in-out infinite;
+}
 
 /* Positions & sizes */
 .target-1 {
   width: 240px;
   height: 240px;
-  top: 20%;
-  left: 10%;
+  top: 30%;
+  left: 17%;
 }
 
 .target-2 {
@@ -360,8 +351,6 @@ body {
 .nav-list a:hover {
   background: color-mix(in oklab, var(--text) 10%, transparent);
 }
-
-/* Removed all theme switch styles completely */
 
 /* ========== Sections ========== */
 
@@ -674,7 +663,7 @@ h3 {
               box-shadow 0.25s ease,
               text-shadow 0.4s ease;
   color: #000 !important; /* Black text */
-  font-weight: 600;
+  /* font-weight: 600; */
   border: none;
   border-radius: 15px;
 }
@@ -714,6 +703,43 @@ h3 {
 /* Focus — accessibility highlight */
 .project-btn:focus,
 .btn--primary:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.project-btn-contact{
+  animation: glowPulse 2.5s infinite ease-in-out;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease,
+              text-shadow 0.4s ease;
+  color: #000 !important; /* Black text */
+  /* font-weight: 600; */
+  border: none;
+  border-radius: 15px;
+  display: inline-block;
+  padding: 14px;
+  font-size: 1.05rem;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  width: 25%;
+  text-align: center;
+}
+
+/* Hover — stronger + faster glow */
+.project-btn-contact:hover{
+  transform: translateY(-3px) scale(1.05);
+  animation: glowPulse 1.5s infinite ease-in-out;
+}
+
+/* Active — subtle press state */
+.project-btn-contact:active{
+  transform: translateY(0) scale(1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus — accessibility highlight */
+.project-btn-contact:focus {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -1534,7 +1560,7 @@ select:focus {
 }
 .footer-brand {
   display: flex;
-  align-items: center; /* logo + text block side by side */
+  /* align-items: center; logo + text block side by side */
   gap: 1rem;
 }
 
@@ -1867,10 +1893,9 @@ select:focus {
     max-width: 100%;
   }
 
-  
-
   .process .steps {
     grid-template-columns: repeat(1, 1fr);
+    padding: 0 5rem;
   }
 
   .project-btn {
@@ -1957,7 +1982,11 @@ select:focus {
   }
 
   .project-btn {
-    width: 100%;
+    width: 40%;
+  }
+
+  .project-btn-contact {
+    width: 25%;
   }
 
   .about-stats {
@@ -2098,6 +2127,7 @@ select:focus {
   #services .services-flex {
     flex-direction: column;   /* stack vertically */
     flex-wrap: nowrap;        /* single column */
+    padding: 0 2rem;        /* side padding */
   }
 
   /* S1 swap */
@@ -2136,7 +2166,7 @@ select:focus {
   }
 
   .footer-brand {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: flex-start;
     width: 100%;
   }
@@ -2313,9 +2343,9 @@ select:focus {
   font-size: 1.1rem;
   padding: 6rem 8rem;
 }
-@media (max-width: 1024px) { .process { padding: 4rem 2rem; } }
+@media (max-width: 1024px) { .process { padding: 4rem 5rem; } }
 @media (max-width: 768px) { .process { padding: 3.5rem 1.5rem; } }
-@media (max-width: 480px) { .process { padding: 3rem 1rem; } }
+@media (max-width: 480px) { .process { padding: 3rem 1.5rem; } }
 
 /* ===== Services ===== */
 .services-section {
@@ -2323,27 +2353,27 @@ select:focus {
   text-align: center;
   padding: 6rem 6rem;
 }
-@media (max-width: 1024px) { .services-section { padding: 4rem 2rem; } }
+@media (max-width: 1024px) { .services-section { padding: 4rem 5rem; } }
 @media (max-width: 768px) { .services-section { padding: 3.5rem 1.5rem; } }
-@media (max-width: 480px) { .services-section { padding: 3rem 1rem; } }
+@media (max-width: 480px) { .services-section { padding: 3rem 2rem; } }
 
 /* ===== Work ===== */
 .work {
   text-align: center;
   padding: 6rem 6rem;
 }
-@media (max-width: 1024px) { .work { padding: 4rem 2rem; } }
+@media (max-width: 1024px) { .work { padding: 4rem 5rem; } }
 @media (max-width: 768px) { .work { padding: 3.5rem 1.5rem; } }
-@media (max-width: 480px) { .work { padding: 3rem 1rem; } }
+@media (max-width: 480px) { .work { padding: 3rem 3rem; } }
 
 /* ===== About ===== */
 .about-section {
   color: var(--text);
   padding: 6rem 8rem;
 }
-@media (max-width: 1024px) { .about-section { padding: 4rem 2rem; } }
-@media (max-width: 768px) { .about-section { padding: 3.5rem 1.5rem; } }
-@media (max-width: 480px) { .about-section { padding: 3rem 1rem; } }
+@media (max-width: 1024px) { .about-section { padding: 4rem 5rem; } }
+@media (max-width: 768px) { .about-section { padding: 3.5rem 5rem; } }
+@media (max-width: 480px) { .about-section { padding: 3rem 5rem; } }
 
 /* ===== Vision & Mission ===== */
 .vision-mission-section {
@@ -2353,9 +2383,9 @@ select:focus {
   margin-top: -2rem;
   padding: 6rem 4rem;
 }
-@media (max-width: 1024px) { .vision-mission-section { padding: 4rem 2rem; } }
-@media (max-width: 768px) { .vision-mission-section { padding: 3.5rem 1.5rem; } }
-@media (max-width: 480px) { .vision-mission-section { padding: 3rem 1rem; } }
+@media (max-width: 1024px) { .vision-mission-section { padding: 4rem 5rem; } }
+@media (max-width: 768px) { .vision-mission-section { padding: 3.5rem 5rem; } }
+@media (max-width: 480px) { .vision-mission-section { padding: 3rem 5rem; } }
 
 /* ===== Contact ===== */
 .contact .container {
@@ -2365,9 +2395,9 @@ select:focus {
   font-size: 1.05rem;
   padding: 6rem 3.5rem;
 }
-@media (max-width: 1024px) { .contact .container { padding: 4rem 2rem; } }
-@media (max-width: 768px) { .contact .container { padding: 3.5rem 1.5rem; } }
-@media (max-width: 480px) { .contact .container { padding: 3rem 1rem; } }
+@media (max-width: 1024px) { .contact .container { padding: 4rem 1.5rem; } }
+@media (max-width: 768px) { .contact .container { padding: 3.5rem 5rem; } }
+@media (max-width: 480px) { .contact .container { padding: 3rem 5rem; } }
 
 
 
