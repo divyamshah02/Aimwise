@@ -3,6 +3,7 @@
    ======================= */
 /* ========== CSS Variables & Themes ========== */
 :root {
+  --header-height: 5rem;
   --bg: #0b0c10;
   --text: #f4f6ff;
   --muted: #b6b9c6;
@@ -91,20 +92,83 @@ body {
 /* ========== Background Shapes ========== */
 .bg-shape {
   position: fixed;
-  inset: auto auto 10% -10%;
-  width: 200px;
-  height: 200px;
-  background-image: url("assets/background-image.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.15;
-  transform: rotate(15deg);
   z-index: -2;
-  filter: blur(10px);
-  animation: floatSlow 8s ease-in-out infinite;
+  /* no image, no blur, no transform */
 }
 
-.bg-1 {
+/* Base for all targets */
+.target {
+  background-image: url('assets/background-aim.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  z-index: -2;
+
+  /* Show the rings */
+  opacity: 0.35;
+
+  /* Add layered glow */
+  filter:
+    drop-shadow(0 0 10px rgba(253, 44, 21, 0.9))   /* sharp glow close to stroke */
+    drop-shadow(0 0 25px rgba(253, 44, 21, 0.7))   /* medium glow */
+    drop-shadow(0 0 50px rgba(253, 44, 21, 0.5));  /* far aura */
+  animation: rotateSubtle 40s linear infinite, pulse 6s ease-in-out infinite;
+}
+
+/* Alternate background */
+
+/* @keyframes glowPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 8px rgba(253, 44, 21, 1))
+      drop-shadow(0 0 20px rgba(253, 44, 21, 0.8))
+      drop-shadow(0 0 40px rgba(253, 44, 21, 0.6));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 15px rgba(253, 44, 21, 1))
+      drop-shadow(0 0 35px rgba(253, 44, 21, 0.9))
+      drop-shadow(0 0 70px rgba(253, 44, 21, 0.7));
+  }
+}
+
+.target {
+  background-image: url('assets/background-aim.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  z-index: -2;
+  opacity: 0.35;
+  animation: rotateSubtle 40s linear infinite, glowPulse 5s ease-in-out infinite;
+} */
+
+/* Positions & sizes */
+.target-1 {
+  width: 240px;
+  height: 240px;
+  top: 20%;
+  left: 10%;
+}
+
+.target-2 {
+  width: 200px;
+  height: 200px;
+  top: 5%;
+  right: 15%;
+  animation-direction: reverse;
+}
+
+.target-3 {
+  width: 280px;
+  height: 280px;
+  top: 55%;
+  left: 60%;
+}
+
+
+/* .bg-1 {
   inset: 20% auto auto 5%;
   opacity: 0.12;
   transform: rotate(25deg) scale(0.9);
@@ -162,7 +226,7 @@ body {
   transform: rotate(135deg) scale(0.8);
   animation: floatReverse 13s ease-in-out infinite, rotateSubtle 22s linear infinite;
   filter: blur(2.5px) drop-shadow(0 0 18px rgba(255, 69, 58, 0.3));
-}
+} */
 
 /* ========== Header / Nav ========== */
 .site-header {
@@ -345,15 +409,7 @@ h3 {
 }
 
 /* Hero */
-.hero {
-  position: relative;
-  min-height: 86vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: clamp(3rem, 7vw, 5rem) 6rem;
-  padding-top: 10rem; /* adjust to match navbar height */
-}
+
 
 .hero-inner {
   max-width: 1100px;
@@ -471,11 +527,7 @@ h3 {
 }
 
 /* ===== Process Section ===== */
-.process {
-  padding: clamp(3rem, 7vw, 5rem) 8rem;
-  text-align: center;
-  font-size: 1.1rem;
-}
+
 
 .process .steps {
   display: grid;
@@ -589,27 +641,110 @@ h3 {
   transition: transform .15s ease, box-shadow .2s ease;
 }
 
-.btn--primary {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: #fff;
-  border: none;
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
-
-/* .btn--ghost {
-  background: transparent;
-} */
 
 .btn--sm {
   padding: .5rem .8rem;
   font-size: .9rem;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(255,255,255,0.8),
+                 0 0 12px rgba(253,44,21,0.5);
+    box-shadow: 0 6px 18px rgba(253,44,21,0.35),
+                0 0 12px rgba(253,44,21,0.25);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255,255,255,1),
+                 0 0 22px rgba(253,44,21,0.8);
+    box-shadow: 0 8px 28px rgba(253,44,21,0.55),
+                0 0 20px rgba(253,44,21,0.4);
+  }
 }
 
-/* Removed all .light-only and .dark-only display classes */
+/* Shared glow style */
+.project-btn,
+.btn--primary {
+  animation: glowPulse 2.5s infinite ease-in-out;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease,
+              text-shadow 0.4s ease;
+  color: #000 !important; /* Black text */
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+}
+
+/* Primary Button */
+.btn--primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  padding: 0.7rem 1.2rem;
+}
+
+/* Project Button */
+.project-btn {
+  display: inline-block;
+  padding: 14px;
+  font-size: 1.05rem;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  width: 25%;
+  text-align: center;
+}
+
+/* Hover — stronger + faster glow */
+.project-btn:hover,
+.btn--primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  animation: glowPulse 1.5s infinite ease-in-out;
+}
+
+/* Active — subtle press state */
+.project-btn:active,
+.btn--primary:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus — accessibility highlight */
+.project-btn:focus,
+.btn--primary:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Rocket floating + glowing animation */
+@keyframes rocketFloat {
+  0%, 100% {
+    transform: translateY(0);
+    text-shadow: 0 0 6px rgba(255,255,255,0.8),
+                 0 0 12px rgba(253,44,21,0.5);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-8deg);
+    text-shadow: 0 0 10px rgba(255,255,255,1),
+                 0 0 20px rgba(253,44,21,0.8);
+  }
+}
+
+.project-btn .rocket {
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 50%;
+  background: #fff; /* white circle */
+  color: #000; /* rocket stays dark */
+  margin-left: 6px;
+  font-size: 1.1em;
+  box-shadow: 0 0 6px rgba(255,255,255,0.8),
+              0 0 12px rgba(253,44,21,0.6);
+}
+
+
 
 /* =======================
    Scroll Reveal Animations
@@ -670,41 +805,6 @@ h3 {
 }
 
 /* =======================
-   Project Button - Final Unified Style
-   ======================= */
-.project-btn {
-  display: inline-block;
-  padding: 14px;
-  border-radius: 15px;
-  font-weight: 450;
-  font-size: 1.05rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
-  color: #fff !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  width: 25%;
-  text-align: center;
-  border: none; /* ✅ Fix: removes black border */
-}
-
-.project-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
-}
-
-.project-btn:active {
-  transform: translateY(0) scale(1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-}
-
-.project-btn:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* =======================
    Section Containers
    ======================= */
 .services-section::before {
@@ -719,11 +819,7 @@ h3 {
   z-index: -1;
 }
 
-.services-section {
-  padding: clamp(3rem, 7vw, 5rem) 6rem;
-  color: var(--text);
-  text-align: center;
-}
+
 
 .services-section .section-title {
   font-size: 2rem;
@@ -804,7 +900,6 @@ h3 {
 .animation3 lottie-player {
   width: 60%;
   height: auto;
-  max-height: 300px;
   filter: brightness(1.1) saturate(1.2); /* Pop of color */
   animation: float 3s ease-in-out infinite; /* Floating effect */
 }
@@ -960,10 +1055,7 @@ h3 {
 }
 
 /* Work Section */
-.work {
-  padding: clamp(3rem, 7vw, 5rem) 6rem;
-  text-align: center;
-}
+
 
 .work h2 {
   margin-bottom: 1rem;
@@ -973,6 +1065,7 @@ h3 {
   max-width: 1000px;
   margin: 0 auto 2rem;
   color: var(--muted);
+  font-size: large;
 }
 
 /* .project-btn-wrapper {
@@ -983,10 +1076,7 @@ h3 {
   About Section
   ================= */
 
-.about-section {
-  padding: clamp(3rem, 7vw, 5rem) 8rem;
-  color: var(--text);
-}
+
 
 .about-container {
   display: grid;
@@ -1095,13 +1185,7 @@ h3 {
 }
 
 /* ===== Vision & Mission Section ===== */
-.vision-mission-section {
-  padding: clamp(3rem, 7vw, 5rem) 4rem;
-  color: var(--text);
-  text-align: center;
-  background: transparent; /* ✅ no extra background */
-  margin-top: -2rem; /* ✅ pulls it closer to About section */
-}
+
 
 /* subtle background glow */
 .vision-mission-section::before {
@@ -1294,60 +1378,49 @@ h3 {
   width: 28px;
   height: 28px;
   object-fit: contain;
-  filter: brightness(0); /* black in light mode */
-  transition: filter 0.3s ease;
-}
-
-/* ✅ Dark mode = white tick */
-.back-to-top-icon {
   filter: brightness(0) invert(1);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 /* ✅ Hover interaction */
 .back-to-top:hover {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 16px color-mix(in oklab, var(--accent) 45%, transparent);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35),
+              0 0 16px color-mix(in oklab, var(--accent) 45%, transparent);
 }
 
 .back-to-top:hover .back-to-top-icon {
-  filter: brightness(0) invert(1); /* always white on hover */
+  filter: brightness(0) invert(1);
+  transform: scale(1.1);
 }
 
-/* 🔹 Responsive adjustments */
+/* 🔹 Responsive adjustments – BIGGER on smaller screens */
 @media (max-width: 768px) {
   .back-to-top {
-    padding: 0.45rem; /* smaller padding */
-    inset: auto 1rem 1rem auto; /* closer to edges */
+    padding: 1rem; /* bigger tap area */
+    inset: auto 1rem 1rem auto;
   }
 
   .back-to-top-icon {
-    width: 22px; /* smaller tick */
-    height: 22px;
+    width: 34px;
+    height: 34px;
   }
 }
 
 @media (max-width: 480px) {
   .back-to-top {
-    padding: 0.35rem;
-    inset: auto 0.75rem 0.75rem auto; /* tighter placement */
+    padding: 1.2rem; /* even bigger for small mobiles */
+    inset: auto 0.75rem 0.75rem auto;
   }
 
   .back-to-top-icon {
-    width: 20px;
-    height: 20px;
+    width: 38px;
+    height: 38px;
   }
 }
 
 /* ===== Contact Form Unified ===== */
-.contact .container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  padding: clamp(3rem, 7vw, 5rem) 3.5rem;
-  font-size: 1.05rem;
-}
-
 .contact-form {
   background: var(--card);
   border: 1px solid var(--border);
@@ -1420,7 +1493,7 @@ select:focus {
 
 @media (max-width: 500px) {
   main{
-    width: 600px;
+    width: 730px;
   }
 
   .blob-1{
@@ -1693,9 +1766,7 @@ select:focus {
 
 /* Tablets (≤ 1024px) */
 @media (max-width: 1024px) {
-  .hero {
-    padding: 10rem 2rem;
-  }
+  
 
   .services-flex {
     flex-direction: row;
@@ -1771,12 +1842,10 @@ select:focus {
     margin-right: 0.5rem;
   }
 
-  .hero {
-    padding: 10rem 1rem;
-  }
+  
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .metrics {
@@ -1798,9 +1867,7 @@ select:focus {
     max-width: 100%;
   }
 
-  .work {
-    padding: clamp(3rem, 7vw, 5rem) 5rem;
-  }
+  
 
   .process .steps {
     grid-template-columns: repeat(1, 1fr);
@@ -1833,9 +1900,7 @@ select:focus {
     font-size: 1.5rem;
   }
 
-  .contact .container {
-    padding: 2rem 5rem;
-  }
+  
 
   .form-row {
     grid-template-columns: 1fr;
@@ -2019,8 +2084,8 @@ select:focus {
   }
 
   .footer-lottie {
-    width: 250px;
-    max-height: 130px;
+    width: 350px;
+    max-height: 180px;
   }
 
   .footer-bottom {
@@ -2055,6 +2120,255 @@ select:focus {
   #services .services-flex > :nth-child(9)  { order: 10; } /* S5 card */
   #services .services-flex > :nth-child(10) { order: 9; }  /* S5 animation */
 }
+
+@media (max-width: 764px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Brand block */
+  .footer-brand-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .footer-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  /* Logo centered above text */
+  .footer-brand .brand-logo {
+    display: block;
+    margin: 0 auto 0.5rem auto;
+    height: 70px;
+    width: 70px;
+  }
+
+  .footer-text {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Contact info extreme left */
+  .footer-contact {
+    margin-top: 1rem;
+    padding-left: 0;
+    text-align: left;
+  }
+
+  /* Footer links extreme left */
+  .footer-nav-social {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    text-align: left;
+    width: 100%;
+  }
+
+  .footer-links ul {
+    padding-left: 0;
+  }
+
+  /* ✅ Socials moved to left */
+  .footer-social {
+    display: flex;
+    justify-content: flex-start; /* align left */
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  /* Animation centered */
+  .footer-right {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  /* Bottom strip stays centered */
+  .footer-bottom {
+    text-align: center;
+  }
+}
+
+/* ===== Font Size Adjustments for Better Readability ===== */
+
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 1.5rem; }
+  .services-section .section-title {
+    font-size: 2.5rem;
+  }
+  .work .subtext {
+    font-size: 1.3rem;
+  }
+  p{
+    font-size: 1.2rem;
+  }
+  .about-content h2 {
+    font-size: 2.5rem;
+  }
+  .about-stats small {
+    font-size: 1rem;
+  }
+  .subhead,
+  .about-text,
+  .service-card p,
+  .vm-content p,
+  .contact .subtext {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 2.2rem; }
+  h3 { font-size: 1.7rem; }
+  p{
+    font-size: 1.3rem;
+  }
+  .services-section .section-title {
+    font-size: 2.2rem;
+  }
+  .services-section .section-subtitle {
+    font-size: 1.4rem;
+  }
+  .service-card h3 {
+    font-size: 1.8rem;
+  }
+  .work .subtext {
+    font-size: 1.3rem;
+  }
+  .subhead,
+  .about-text,
+  .service-card p,
+  .vm-content p,
+  .contact .subtext {
+    font-size: 1.3rem;
+  }
+  .metric { font-size: 1.5rem; }
+}
+
+/* Small Mobiles (≤ 480px) */
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 2.2rem; }
+  h3 { font-size: 1.3rem; }
+  .subhead,
+  .about-text,
+  .service-card p,
+  .vm-content p,
+  .contact .subtext {
+    font-size: 1.15rem;
+  }
+  .metric { font-size: 1.1rem; }
+}
+
+/* ===== Updated Section Paddings ===== */
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  min-height: min(86vh, 900px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 5rem) 6rem 4rem;
+}
+@media (max-width: 1024px) {
+  .hero {
+    min-height: min(78vh, 700px);
+    padding: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 5rem) 2rem 4rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    min-height: 72vh;
+    padding: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 5rem) 1.5rem 3.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    min-height: 68vh;
+    padding: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 5rem) 1rem 3rem;
+  }
+}
+
+/* ===== Process ===== */
+.process {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 6rem 8rem;
+}
+@media (max-width: 1024px) { .process { padding: 4rem 2rem; } }
+@media (max-width: 768px) { .process { padding: 3.5rem 1.5rem; } }
+@media (max-width: 480px) { .process { padding: 3rem 1rem; } }
+
+/* ===== Services ===== */
+.services-section {
+  color: var(--text);
+  text-align: center;
+  padding: 6rem 6rem;
+}
+@media (max-width: 1024px) { .services-section { padding: 4rem 2rem; } }
+@media (max-width: 768px) { .services-section { padding: 3.5rem 1.5rem; } }
+@media (max-width: 480px) { .services-section { padding: 3rem 1rem; } }
+
+/* ===== Work ===== */
+.work {
+  text-align: center;
+  padding: 6rem 6rem;
+}
+@media (max-width: 1024px) { .work { padding: 4rem 2rem; } }
+@media (max-width: 768px) { .work { padding: 3.5rem 1.5rem; } }
+@media (max-width: 480px) { .work { padding: 3rem 1rem; } }
+
+/* ===== About ===== */
+.about-section {
+  color: var(--text);
+  padding: 6rem 8rem;
+}
+@media (max-width: 1024px) { .about-section { padding: 4rem 2rem; } }
+@media (max-width: 768px) { .about-section { padding: 3.5rem 1.5rem; } }
+@media (max-width: 480px) { .about-section { padding: 3rem 1rem; } }
+
+/* ===== Vision & Mission ===== */
+.vision-mission-section {
+  color: var(--text);
+  text-align: center;
+  background: transparent;
+  margin-top: -2rem;
+  padding: 6rem 4rem;
+}
+@media (max-width: 1024px) { .vision-mission-section { padding: 4rem 2rem; } }
+@media (max-width: 768px) { .vision-mission-section { padding: 3.5rem 1.5rem; } }
+@media (max-width: 480px) { .vision-mission-section { padding: 3rem 1rem; } }
+
+/* ===== Contact ===== */
+.contact .container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.05rem;
+  padding: 6rem 3.5rem;
+}
+@media (max-width: 1024px) { .contact .container { padding: 4rem 2rem; } }
+@media (max-width: 768px) { .contact .container { padding: 3.5rem 1.5rem; } }
+@media (max-width: 480px) { .contact .container { padding: 3rem 1rem; } }
+
 
 
 /* =======================
