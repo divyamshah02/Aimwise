@@ -2,6 +2,7 @@
    Global Styles & Variables
    ======================= */
 /* ========== CSS Variables & Themes ========== */
+
 :root {
   --header-height: 5rem;
   --bg: #0b0c10;
@@ -20,6 +21,7 @@
 
 html,
 body {
+  max-width: 100%;
   height: 100%;
 }
 
@@ -104,15 +106,12 @@ body {
   background-position: center;
   position: fixed;
   z-index: -2;
-
   /* Show the rings */
   opacity: 0.35;
-
   /* Add layered glow */
-  filter:
-    drop-shadow(0 0 10px rgba(253, 44, 21, 0.9))   /* sharp glow close to stroke */
-    drop-shadow(0 0 25px rgba(253, 44, 21, 0.7))   /* medium glow */
-    drop-shadow(0 0 50px rgba(253, 44, 21, 0.5));  /* far aura */
+  filter: drop-shadow(0 0 10px rgba(253, 44, 21, 0.9)) /* sharp glow close to stroke */
+    drop-shadow(0 0 25px rgba(253, 44, 21, 0.7)) /* medium glow */
+    drop-shadow(0 0 50px rgba(253, 44, 21, 0.5)); /* far aura */
   animation: rotateSubtle 40s linear infinite, pulse 6s ease-in-out infinite;
 }
 
@@ -123,22 +122,19 @@ body {
   background-position: center;
   position: fixed;
   z-index: -2;
-
   /* Show the rings */
   opacity: 0.35;
-
   /* Add layered glow */
-  filter:
-    drop-shadow(0 0 10px rgba(253, 44, 21, 0.9))   /* sharp glow close to stroke */
-    drop-shadow(0 0 25px rgba(253, 44, 21, 0.7))   /* medium glow */
-    drop-shadow(0 0 50px rgba(253, 44, 21, 0.5));  /* far aura */
+  filter: drop-shadow(0 0 10px rgba(253, 44, 21, 0.9)) /* sharp glow close to stroke */
+    drop-shadow(0 0 25px rgba(253, 44, 21, 0.7)) /* medium glow */
+    drop-shadow(0 0 50px rgba(253, 44, 21, 0.5)); /* far aura */
   animation: rotateSubtle 40s linear infinite, pulse 6s ease-in-out infinite;
 }
 
-/* Positions & sizes */
+/* Default styles (desktop/laptop) */
 .target-1 {
-  width: 240px;
-  height: 240px;
+  width: 170px;
+  height: 170px;
   top: 30%;
   left: 17%;
 }
@@ -156,6 +152,73 @@ body {
   height: 280px;
   top: 55%;
   left: 60%;
+}
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  .target-1 {
+    width: 140px;
+    height: 140px;
+    left: 15%;
+  }
+
+  .target-2 {
+    width: 160px;
+    height: 160px;
+    right: 12%;
+    top: 20%;
+  }
+
+  .target-3 {
+    width: 220px;
+    height: 220px;
+    left: 55%;
+    top: 65%;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .target-1 {
+    width: 100px;
+    height: 100px;
+    left: 10%;
+  }
+
+  .target-2 {
+    width: 120px;
+    height: 120px;
+    right: 8%;
+    top: 20%;
+  }
+
+  .target-3 {
+    width: 160px;
+    height: 160px;
+    left: 50%;
+    top: 70%;
+  }
+}
+
+/* Extra-small screens (iPhone SE, etc.) */
+@media (max-width: 400px) {
+  .target-1 {
+    width: 80px;
+    height: 80px;
+    left: 8%;
+  }
+
+  .target-2 {
+    width: 100px;
+    height: 100px;
+    right: 5%;
+  }
+
+  .target-3 {
+    width: 130px;
+    height: 130px;
+    left: 45%;
+  }
 }
 
 
@@ -1424,7 +1487,7 @@ h3 {
 /* 🔹 Responsive adjustments – BIGGER on smaller screens */
 @media (max-width: 768px) {
   .back-to-top {
-    padding: 1rem; /* bigger tap area */
+    /* padding: 1rem; */
     inset: auto 1rem 1rem auto;
   }
 
@@ -1436,7 +1499,7 @@ h3 {
 
 @media (max-width: 480px) {
   .back-to-top {
-    padding: 1.2rem; /* even bigger for small mobiles */
+    /* padding: 1.2rem; */
     inset: auto 0.75rem 0.75rem auto;
   }
 
@@ -1518,9 +1581,9 @@ select:focus {
 }
 
 @media (max-width: 500px) {
-  main{
+  /* main{
     width: 730px;
-  }
+  } */
 
   .blob-1{
     left: 25%;
@@ -1528,7 +1591,7 @@ select:focus {
   }
 
   .site-footer {
-    width: max-content;
+    /* width: max-content; */
     padding: 2rem 2rem 1rem;
   }
 }
@@ -1868,8 +1931,6 @@ select:focus {
     margin-right: 0.5rem;
   }
 
-  
-
   .hero h1 {
     font-size: 3rem;
   }
@@ -1924,8 +1985,6 @@ select:focus {
     margin: 0;
     font-size: 1.5rem;
   }
-
-  
 
   .form-row {
     grid-template-columns: 1fr;
@@ -1982,11 +2041,11 @@ select:focus {
   }
 
   .project-btn {
-    width: 40%;
+    width: 75%;
   }
 
   .project-btn-contact {
-    width: 25%;
+    width: 60%;
   }
 
   .about-stats {
@@ -2295,8 +2354,11 @@ select:focus {
 /* Small Mobiles (≤ 480px) */
 @media (max-width: 480px) {
   h1 { font-size: 2rem; }
-  h2 { font-size: 2.2rem; }
-  h3 { font-size: 1.3rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.4rem; }
+  p{
+    font-size: 1.1rem;
+  }
   .subhead,
   .about-text,
   .service-card p,
@@ -2305,6 +2367,27 @@ select:focus {
     font-size: 1.15rem;
   }
   .metric { font-size: 1.1rem; }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .services-section .section-title {
+    font-size: 2rem;
+  }
+  .services-section .section-subtitle {
+    font-size: 1.2rem;
+  }
+  .service-card h3 {
+    font-size: 1.4rem;
+  }
+  .work .subtext {
+    font-size: 1.2rem;
+  }
+  .about-content h2 {
+    font-size: 2rem;
+  }
+  .vm-content h3 {
+    font-size: 1.4rem;
+  }
 }
 
 /* ===== Updated Section Paddings ===== */
